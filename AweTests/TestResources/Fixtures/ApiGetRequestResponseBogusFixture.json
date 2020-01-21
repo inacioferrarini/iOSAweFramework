@@ -2,18 +2,18 @@
     "data": [
         {
             "name": "John Doe",
-            "age": 35,
-            "boolValue": true
+            "age": "27",
+            "boolValue": "true"
         },
         {
             "name": "John William",
-            "age": 40,
-            "boolValue": false
+            "age": "40",
+            "boolValue": "false"
         },
         {
             "name": "Jacob Michael",
-            "age": 37,
-            "boolValue": true
+            "age": "37",
+            "boolValue": "true"
         }
     ]
 }

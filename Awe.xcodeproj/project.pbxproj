@@ -53,6 +53,11 @@
 		BBA5C45723D76DF300270CD7 /* ResourcePatchAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA5C45623D76DF300270CD7 /* ResourcePatchAPISpec.swift */; };
 		BBA5C45923D76E9000270CD7 /* ResourceDeleteAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA5C45823D76E9000270CD7 /* ResourceDeleteAPISpec.swift */; };
 		BBA5C45B23D76F3200270CD7 /* ResourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA5C45A23D76F3200270CD7 /* ResourceSpec.swift */; };
+		BBA5C45D23D78B3B00270CD7 /* ApiGetRequestResponseBogusFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = BBA5C45C23D78B3B00270CD7 /* ApiGetRequestResponseBogusFixture.json */; };
+		BBA5C45F23D78B5100270CD7 /* ApiPostRequestResponseBogusFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = BBA5C45E23D78B5100270CD7 /* ApiPostRequestResponseBogusFixture.json */; };
+		BBA5C46123D78B7000270CD7 /* ApiPutRequestResponseBogusFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = BBA5C46023D78B7000270CD7 /* ApiPutRequestResponseBogusFixture.json */; };
+		BBA5C46323D78B7A00270CD7 /* ApiPatchRequestResponseBogusFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = BBA5C46223D78B7A00270CD7 /* ApiPatchRequestResponseBogusFixture.json */; };
+		BBA5C46523D78B8200270CD7 /* ApiDeleteRequestResponseBogusFixture.json in Resources */ = {isa = PBXBuildFile; fileRef = BBA5C46423D78B8200270CD7 /* ApiDeleteRequestResponseBogusFixture.json */; };
 		BBD509212337E2E5009CA4EE /* Awe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD509172337E2E4009CA4EE /* Awe.framework */; };
 		BBD509282337E2E5009CA4EE /* Awe.h in Headers */ = {isa = PBXBuildFile; fileRef = BBD5091A2337E2E4009CA4EE /* Awe.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -126,6 +131,11 @@
 		BBA5C45623D76DF300270CD7 /* ResourcePatchAPISpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcePatchAPISpec.swift; sourceTree = "<group>"; };
 		BBA5C45823D76E9000270CD7 /* ResourceDeleteAPISpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceDeleteAPISpec.swift; sourceTree = "<group>"; };
 		BBA5C45A23D76F3200270CD7 /* ResourceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceSpec.swift; sourceTree = "<group>"; };
+		BBA5C45C23D78B3B00270CD7 /* ApiGetRequestResponseBogusFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ApiGetRequestResponseBogusFixture.json; sourceTree = "<group>"; };
+		BBA5C45E23D78B5100270CD7 /* ApiPostRequestResponseBogusFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ApiPostRequestResponseBogusFixture.json; sourceTree = "<group>"; };
+		BBA5C46023D78B7000270CD7 /* ApiPutRequestResponseBogusFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ApiPutRequestResponseBogusFixture.json; sourceTree = "<group>"; };
+		BBA5C46223D78B7A00270CD7 /* ApiPatchRequestResponseBogusFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ApiPatchRequestResponseBogusFixture.json; sourceTree = "<group>"; };
+		BBA5C46423D78B8200270CD7 /* ApiDeleteRequestResponseBogusFixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ApiDeleteRequestResponseBogusFixture.json; sourceTree = "<group>"; };
 		BBD509172337E2E4009CA4EE /* Awe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Awe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD5091A2337E2E4009CA4EE /* Awe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Awe.h; sourceTree = "<group>"; };
 		BBD5091B2337E2E4009CA4EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -316,11 +326,16 @@
 		BBA5C43F23D7484B00270CD7 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				BBA5C44023D7484B00270CD7 /* ApiPutRequestResponseFixture.json */,
-				BBA5C44123D7484B00270CD7 /* ApiPatchRequestResponseFixture.json */,
-				BBA5C44223D7484B00270CD7 /* ApiPostRequestResponseFixture.json */,
-				BBA5C44323D7484B00270CD7 /* ApiDeleteRequestResponseFixture.json */,
 				BBA5C44423D7484B00270CD7 /* ApiGetRequestResponseFixture.json */,
+				BBA5C45C23D78B3B00270CD7 /* ApiGetRequestResponseBogusFixture.json */,
+				BBA5C44223D7484B00270CD7 /* ApiPostRequestResponseFixture.json */,
+				BBA5C45E23D78B5100270CD7 /* ApiPostRequestResponseBogusFixture.json */,
+				BBA5C44023D7484B00270CD7 /* ApiPutRequestResponseFixture.json */,
+				BBA5C46023D78B7000270CD7 /* ApiPutRequestResponseBogusFixture.json */,
+				BBA5C44123D7484B00270CD7 /* ApiPatchRequestResponseFixture.json */,
+				BBA5C46223D78B7A00270CD7 /* ApiPatchRequestResponseBogusFixture.json */,
+				BBA5C44323D7484B00270CD7 /* ApiDeleteRequestResponseFixture.json */,
+				BBA5C46423D78B8200270CD7 /* ApiDeleteRequestResponseBogusFixture.json */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -472,14 +487,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA5C44C23D7484B00270CD7 /* ApiDeleteRequestResponseFixture.json in Resources */,
+				BBA5C45D23D78B3B00270CD7 /* ApiGetRequestResponseBogusFixture.json in Resources */,
 				BBA5C44B23D7484B00270CD7 /* ApiPostRequestResponseFixture.json in Resources */,
 				BBA5C44D23D7484B00270CD7 /* ApiGetRequestResponseFixture.json in Resources */,
+				BBA5C46123D78B7000270CD7 /* ApiPutRequestResponseBogusFixture.json in Resources */,
+				BBA5C45F23D78B5100270CD7 /* ApiPostRequestResponseBogusFixture.json in Resources */,
 				BBA5C44623D7484B00270CD7 /* PersonArray.json in Resources */,
 				BBA5C44923D7484B00270CD7 /* ApiPutRequestResponseFixture.json in Resources */,
 				BBA5C44A23D7484B00270CD7 /* ApiPatchRequestResponseFixture.json in Resources */,
 				BBA5C44723D7484B00270CD7 /* UnparseablePersonArray.json in Resources */,
 				BBA5C44823D7484B00270CD7 /* Person.json in Resources */,
+				BBA5C46323D78B7A00270CD7 /* ApiPatchRequestResponseBogusFixture.json in Resources */,
 				BBA5C44523D7484B00270CD7 /* UnparseablePerson.json in Resources */,
+				BBA5C46523D78B8200270CD7 /* ApiDeleteRequestResponseBogusFixture.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,7 +615,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -658,7 +678,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -690,7 +710,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TS43775FV9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 5;
+				DYLIB_CURRENT_VERSION = 6;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Awe/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -717,7 +737,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TS43775FV9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 5;
+				DYLIB_CURRENT_VERSION = 6;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Awe/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

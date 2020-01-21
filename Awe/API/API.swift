@@ -59,6 +59,23 @@ open class API {
 
     }
 
+    ///
+    /// Supported Network Errors
+    ///
+    public enum NetworkError: Error {
+
+        ///
+        /// Error happened while trying to decode given data to the given type.
+        ///
+        case decodingError
+
+        ///
+        /// Data returned from the backend was not properly parsed to given type.
+        ///
+        case domainError
+
+    }
+
     // MARK: - Properties
 
     let rootUrl: String
@@ -133,8 +150,12 @@ open class API {
                 if let data = data {
                     response <-- data
                 }
-                DispatchQueue.main.async {
-                    completionHandler(.success(response))
+                if let response = response {
+                    DispatchQueue.main.async {
+                        completionHandler(.success(response))
+                    }
+                } else {
+                    completionHandler(.failure(NetworkError.decodingError))
                 }
             }
         }

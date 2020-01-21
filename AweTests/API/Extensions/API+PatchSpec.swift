@@ -43,7 +43,7 @@ class APIPatchSpec: QuickSpec {
                     stub(condition: isHost("www.apiurl.com") && isMethodPATCH()) { _ in
                         let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
                         let error = OHHTTPStubsResponse(error:notConnectedError)
-                        guard let fixtureFile = OHPathForFile("ApiGetRequestResponseFixture.json", type(of: self)) else { return error }
+                        guard let fixtureFile = OHPathForFile("ApiPatchRequestResponseFixture.json", type(of: self)) else { return error }
                         
                         return OHHTTPStubsResponse(
                             fileAtPath: fixtureFile,
@@ -94,7 +94,7 @@ class APIPatchSpec: QuickSpec {
                     stub(condition: isHost("www.apiurl.com") && isMethodPATCH()) { _ in
                         let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
                         let error = OHHTTPStubsResponse(error:notConnectedError)
-                        guard let fixtureFile = OHPathForFile("ApiGetRequestResponseFixture.json", type(of: self)) else { return error }
+                        guard let fixtureFile = OHPathForFile("ApiPatchRequestResponseFixture.json", type(of: self)) else { return error }
                         
                         return OHHTTPStubsResponse(
                             fileAtPath: fixtureFile,
@@ -141,6 +141,47 @@ class APIPatchSpec: QuickSpec {
                     expect(personResponse?["data"]?[2].name).to(equal("Jacob Michael"))
                     expect(personResponse?["data"]?[2].age).to(equal(37))
                     expect(personResponse?["data"]?[2].boolValue).to(equal(true))
+                }
+                
+                it("If request succeeds, but parse fails, must return proper error.") {
+                    // Given
+                    stub(condition: isHost("www.apiurl.com") && isMethodPATCH()) { _ in
+                        let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
+                        let error = OHHTTPStubsResponse(error:notConnectedError)
+                        guard let fixtureFile = OHPathForFile("ApiPatchRequestResponseBogusFixture.json", type(of: self)) else { return error }
+                        
+                        return OHHTTPStubsResponse(
+                            fileAtPath: fixtureFile,
+                            statusCode: 200,
+                            headers: ["Content-Type": "application/json"]
+                        )
+                    }
+                    
+                    let personRequest: PersonRequest? = nil
+                    var personResponse: PersonResponse? = nil
+                    let api = API("https://www.apiurl.com")
+                    let targetUrl = "/path"
+                    
+                    // When
+                    waitUntil { done in
+                        api.patch(
+                            targetUrl: targetUrl,
+                            requestObject: personRequest,
+                            headers: nil,
+                            completionHandler: { (response: Result<PersonResponse?, Error>) in
+                                switch response {
+                                case .success(let response):
+                                    fail("Mocked response returned success")
+                                    personResponse = response
+                                    done()
+                                case .failure(_):
+                                    done()
+                                }
+                        }, retryAttempts: 30)
+                    }
+                    
+                    // Then
+                    expect(personResponse).to(beNil())
                 }
                 
                 it("if request fails, must execute failure block") {
