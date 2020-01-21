@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>API Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/API" class="dashAnchor"></a>
+    <a title="API Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (95% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        API Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/API.html">API</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/API/HttpMethod.html">– HttpMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceApi.html">ResourceApi</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceApi/NetworkError.html">– NetworkError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Decodable.html">Decodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Encodable.html">Encodable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Resource.html">Resource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Resource/HttpMethod.html">– HttpMethod</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>API</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">API</span></code></pre>
+
+                </div>
+              </div>
+            <p>Basic Api class.</p>
+
+<p>Handles remote HTTP requests using Apple APIs.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC10HttpMethodO"></a>
+                    <a name="//apple_ref/swift/Enum/HttpMethod" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC10HttpMethodO">HttpMethod</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Supported Http Methods</p>
+
+                        <a href="../Classes/API/HttpMethod.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">HttpMethod</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialization"></a>
+                <a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
+                <a href="#/Initialization">
+                  <h3 class="section-name">Initialization</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APICyACSScfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APICyACSScfc">init(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Inits the class using the given the root url.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">rootUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rootUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The  server base url.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Supporting%20methods"></a>
+                <a name="//apple_ref/swift/Section/Supporting methods" class="dashAnchor"></a>
+                <a href="#/Supporting%20methods">
+                  <h3 class="section-name">Supporting methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC14executeRequest10httpMethod_9targetUrl13requestObject7headers17completionHandler13retryAttemptsyAC04HttpF0O_SSSgSSxSgSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/executeRequest(httpMethod:_:targetUrl:requestObject:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC14executeRequest10httpMethod_9targetUrl13requestObject7headers17completionHandler13retryAttemptsyAC04HttpF0O_SSSgSSxSgSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF">executeRequest(httpMethod:_:targetUrl:requestObject:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a httpMethod kind request to the given path.
+If the requests succeeds, the <code>completion</code> block will be called after converting the result
+using the given transformer.
+If the request fails, the &lsquo;errorHandler&rsquo; block will be called instead.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="n">executeRequest</span><span class="o">&lt;</span><span class="kt">RequestType</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">httpMethod</span><span class="p">:</span> <span class="kt">API</span><span class="o">.</span><span class="kt"><a href="../Classes/API/HttpMethod.html">HttpMethod</a></span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">endpointUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">requestObject</span><span class="p">:</span> <span class="kt">RequestType</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">RequestType</span><span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>httpMethod</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http method to execute.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>_</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The server base url. If <code>nil</code>, <code>rootUrl</code> will be used.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Request object with values to be used as body.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC6delete9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF"></a>
+                    <a name="//apple_ref/swift/Method/delete(targetUrl:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC6delete9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF">delete(targetUrl:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>delete</code> request without body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">delete</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC6delete9targetUrl13requestObject7headers17completionHandler13retryAttemptsySS_xSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/delete(targetUrl:requestObject:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC6delete9targetUrl13requestObject7headers17completionHandler13retryAttemptsySS_xSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF">delete(targetUrl:requestObject:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>delete</code> request with <code>requestObject</code> as body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">delete</span><span class="o">&lt;</span><span class="kt">RequestType</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">requestObject</span><span class="p">:</span> <span class="kt">RequestType</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">RequestType</span><span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>body data to be sent with the request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC3get9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF"></a>
+                    <a name="//apple_ref/swift/Method/get(targetUrl:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC3get9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF">get(targetUrl:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>get</code> request without body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="k">get</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC5patch9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF"></a>
+                    <a name="//apple_ref/swift/Method/patch(targetUrl:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC5patch9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF">patch(targetUrl:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>patch</code> request without body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">patch</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC5patch9targetUrl13requestObject7headers17completionHandler13retryAttemptsySS_xSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/patch(targetUrl:requestObject:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC5patch9targetUrl13requestObject7headers17completionHandler13retryAttemptsySS_xSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF">patch(targetUrl:requestObject:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>patch</code> request with <code>requestObject</code> as body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">patch</span><span class="o">&lt;</span><span class="kt">RequestType</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">requestObject</span><span class="p">:</span> <span class="kt">RequestType</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">RequestType</span><span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>body data to be sent with the request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC4post9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF"></a>
+                    <a name="//apple_ref/swift/Method/post(targetUrl:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC4post9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF">post(targetUrl:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>post</code> request without body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">post</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC4post9targetUrl13requestObject7headers17completionHandler13retryAttemptsySS_xSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/post(targetUrl:requestObject:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC4post9targetUrl13requestObject7headers17completionHandler13retryAttemptsySS_xSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF">post(targetUrl:requestObject:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>post</code> request with <code>requestObject</code> as body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">post</span><span class="o">&lt;</span><span class="kt">RequestType</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">requestObject</span><span class="p">:</span> <span class="kt">RequestType</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">RequestType</span><span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>body data to be sent with the request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC3put9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF"></a>
+                    <a name="//apple_ref/swift/Method/put(targetUrl:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC3put9targetUrl7headers17completionHandler13retryAttemptsySS_SDyS2SGSgys6ResultOyxSgs5Error_pGcSitSeRzlF">put(targetUrl:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>put</code> request without body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">put</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Awe3APIC3put9targetUrl13requestObject7headers17completionHandler13retryAttemptsySS_xSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF"></a>
+                    <a name="//apple_ref/swift/Method/put(targetUrl:requestObject:headers:completionHandler:retryAttempts:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Awe3APIC3put9targetUrl13requestObject7headers17completionHandler13retryAttemptsySS_xSDyS2SGSgys6ResultOyq_Sgs5Error_pGcSitSERzSeR_r0_lF">put(targetUrl:requestObject:headers:completionHandler:retryAttempts:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a <code>put</code> request with <code>requestObject</code> as body.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">put</span><span class="o">&lt;</span><span class="kt">RequestType</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nv">targetUrl</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">requestObject</span><span class="p">:</span> <span class="kt">RequestType</span><span class="p">,</span>
+    <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt">ResponseType</span><span class="p">?,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">),</span>
+    <span class="nv">retryAttempts</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">where</span> <span class="kt">RequestType</span><span class="p">:</span> <span class="kt">Encodable</span><span class="p">,</span> <span class="kt">ResponseType</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request path.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>body data to be sent with the request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Http Headers to be sent with the request.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the block to be called when the request completes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryAttempts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>How many tries before calling <code>errorHandler</code> block.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-01-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

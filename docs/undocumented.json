@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/inacio.ferrarini/Developer/iOS/Frameworks/iOSAweFramework/Awe/Resources/Resource.swift",
+      "line": 86,
+      "symbol": "Resource.init(url:body:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/inacio.ferrarini/Developer/iOS/Frameworks/iOSAweFramework/Awe/Resources/Resource.swift",
+      "line": 91,
+      "symbol": "Resource.init(url:body:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/inacio.ferrarini/Developer/iOS/Frameworks/iOSAweFramework"
+}
