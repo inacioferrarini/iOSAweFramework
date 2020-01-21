@@ -43,7 +43,7 @@ class ResourceAPIPostSpec: QuickSpec {
                     stub(condition: isHost("www.apiurl.com") && isMethodPOST()) { _ in
                         let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
                         let error = OHHTTPStubsResponse(error:notConnectedError)
-                        guard let fixtureFile = OHPathForFile("ApiGetRequestResponseFixture.json", type(of: self)) else { return error }
+                        guard let fixtureFile = OHPathForFile("ApiPostRequestResponseFixture.json", type(of: self)) else { return error }
                         
                         return OHHTTPStubsResponse(
                             fileAtPath: fixtureFile,
@@ -92,7 +92,7 @@ class ResourceAPIPostSpec: QuickSpec {
                     stub(condition: isHost("www.apiurl.com") && isMethodPOST()) { _ in
                         let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
                         let error = OHHTTPStubsResponse(error:notConnectedError)
-                        guard let fixtureFile = OHPathForFile("ApiGetRequestResponseFixture.json", type(of: self)) else { return error }
+                        guard let fixtureFile = OHPathForFile("ApiPostRequestResponseFixture.json", type(of: self)) else { return error }
                         
                         return OHHTTPStubsResponse(
                             fileAtPath: fixtureFile,
@@ -135,6 +135,43 @@ class ResourceAPIPostSpec: QuickSpec {
                     expect(personResponse?["data"]?[2].name).to(equal("Jacob Michael"))
                     expect(personResponse?["data"]?[2].age).to(equal(37))
                     expect(personResponse?["data"]?[2].boolValue).to(equal(true))
+                }
+                
+                it("If request succeeds, but parse fails, must return proper error.") {
+                    // Given
+                    stub(condition: isHost("www.apiurl.com") && isMethodPOST()) { _ in
+                        let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
+                        let error = OHHTTPStubsResponse(error:notConnectedError)
+                        guard let fixtureFile = OHPathForFile("ApiPostRequestResponseBogusFixture.json", type(of: self)) else { return error }
+                        
+                        return OHHTTPStubsResponse(
+                            fileAtPath: fixtureFile,
+                            statusCode: 200,
+                            headers: ["Content-Type": "application/json"]
+                        )
+                    }
+                    
+                    let personResourceUrl = URL(string: "https://www.apiurl.com/path")!
+                    var personResource = Resource<PersonResponse>(url: personResourceUrl)
+                    personResource.httpHeaders = ["X-API-TOKEN" : "1234-12312-1231"]
+                    var personResponse: PersonResponse?
+                    
+                    // When
+                    waitUntil { done in
+                        ResourceApi().load(resource: personResource) { response in
+                            switch response {
+                            case .success(let response):
+                                fail("Mocked response returned success")
+                                personResponse = response
+                                done()
+                            case .failure(_):
+                                done()
+                            }
+                        }
+                    }
+                    
+                    // Then
+                    expect(personResponse).to(beNil())
                 }
         
                 it("if request fails, must execute failure block") {
