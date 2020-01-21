@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "name": "John Doe",
+            "age": 35,
+            "boolValue": true
+        },
+        {
+            "name": "John William",
+            "age": 40,
+            "boolValue": false
+        },
+        {
+            "name": "Jacob Michael",
+            "age": 37,
+            "boolValue": true
+        }
+    ]
+}

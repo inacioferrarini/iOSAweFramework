@@ -1,0 +1,5 @@
+author: Inácio Ferrarini
+module: Awe
+output: docs
+theme: fullwidth
+xcodebuild_arguments: [-project, 'Awe.xcodeproj', -scheme, 'Awe']
