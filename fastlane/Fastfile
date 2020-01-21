@@ -45,7 +45,7 @@ platform :ios do
     push_to_git_remote
     create_pull_request(
       api_token: ENV["GITHUB_API_TOKEN"],
-      repo: "inacioferrarini/Awe",
+      repo: "inacioferrarini/iOSAweFramework",
       title: "New Version"
     )
   end
