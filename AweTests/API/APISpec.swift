@@ -63,7 +63,7 @@ class APISpec: QuickSpec {
                             httpMethod: API.HttpMethod.get,
                             targetUrl: targetUrl,
                             requestObject: personRequest,
-                            headers: nil,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -118,7 +118,7 @@ class APISpec: QuickSpec {
                             httpMethod: API.HttpMethod.get,
                             targetUrl: targetUrl,
                             requestObject: personRequest,
-                            headers: headers,
+                            requestHeaders: headers,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -172,7 +172,7 @@ class APISpec: QuickSpec {
                             httpMethod: API.HttpMethod.get,
                             targetUrl: targetUrl,
                             requestObject: personRequest,
-                            headers: nil,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -207,7 +207,7 @@ class APISpec: QuickSpec {
                             httpMethod: API.HttpMethod.get,
                             targetUrl: targetUrl,
                             requestObject: personRequest,
-                            headers: nil,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):

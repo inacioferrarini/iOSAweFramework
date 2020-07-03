@@ -60,7 +60,7 @@ class APIGetSpec: QuickSpec {
                     waitUntil { done in
                         api.get(
                             targetUrl: targetUrl,
-                            headers: nil,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -112,7 +112,7 @@ class APIGetSpec: QuickSpec {
                     waitUntil { done in
                         api.get(
                             targetUrl: targetUrl,
-                            headers: headers,
+                            requestHeaders: headers,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -163,7 +163,7 @@ class APIGetSpec: QuickSpec {
                     waitUntil { done in
                         api.get(
                             targetUrl: targetUrl,
-                            headers: nil,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -195,7 +195,7 @@ class APIGetSpec: QuickSpec {
                     waitUntil { done in
                         api.get(
                             targetUrl: targetUrl,
-                            headers: nil,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):

@@ -60,7 +60,7 @@ class APIPostSpec: QuickSpec {
                     waitUntil { done in
                         api.post(
                             targetUrl: targetUrl,
-                            headers: nil,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -114,7 +114,7 @@ class APIPostSpec: QuickSpec {
                         api.post(
                             targetUrl: targetUrl,
                             requestObject: personRequest,
-                            headers: headers,
+                            requestHeaders: headers,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -167,7 +167,7 @@ class APIPostSpec: QuickSpec {
                         api.post(
                             targetUrl: targetUrl,
                             requestObject: personRequest,
-                            headers: nil,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
@@ -199,7 +199,138 @@ class APIPostSpec: QuickSpec {
                     waitUntil { done in
                         api.post(
                             targetUrl: targetUrl,
-                            headers: nil,
+                            requestHeaders: nil,
+                            completionHandler: { (response: Result<PersonResponse?, Error>) in
+                                switch response {
+                                case .success(let response):
+                                    fail("Mocked response returned success")
+                                    personResponse = response
+                                    done()
+                                case .failure(_):
+                                    done()
+                                }
+                        }, retryAttempts: 30)
+                    }
+
+                    // Then
+                    expect(personResponse).to(beNil())
+                }
+                
+                // MARK: - Data Request
+                                
+                it("if data request with body and headers succeeds, must return valid object") {
+                    // Given
+                    stub(condition: isHost("www.apiurl.com") && isMethodPOST()) { _ in
+                        let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
+                        let error = OHHTTPStubsResponse(error:notConnectedError)
+                        guard let fixtureFile = OHPathForFile("ApiPostRequestResponseFixture.json", type(of: self)) else { return error }
+                        
+                        return OHHTTPStubsResponse(
+                            fileAtPath: fixtureFile,
+                            statusCode: 200,
+                            headers: ["Content-Type": "application/json"]
+                        )
+                    }
+                    
+                    let headers = ["X-API-TOKEN" : "1234-12312-1231"]
+                    let requestData = Data()
+                    var personResponse: PersonResponse? = nil
+                    let api = API("https://www.apiurl.com")
+                    let targetUrl = "/path"
+                    
+                    // When
+                    waitUntil { done in
+                        api.post(
+                            targetUrl: targetUrl,
+                            requestData: requestData,
+                            requestHeaders: headers,
+                            completionHandler: { (response: Result<PersonResponse?, Error>) in
+                                switch response {
+                                case .success(let response):
+                                    personResponse = response
+                                    done()
+                                case .failure(let error):
+                                    fail("Mocked response returned error - \(error)")
+                                    done()
+                                }
+                        }, retryAttempts: 30)
+                    }
+
+                    // Then
+                    expect(personResponse?["data"]?.count).to(equal(3))
+                    
+                    expect(personResponse?["data"]?[0].name).to(equal("John Doe"))
+                    expect(personResponse?["data"]?[0].age).to(equal(35))
+                    expect(personResponse?["data"]?[0].boolValue).to(equal(true))
+                    
+                    expect(personResponse?["data"]?[1].name).to(equal("John William"))
+                    expect(personResponse?["data"]?[1].age).to(equal(40))
+                    expect(personResponse?["data"]?[1].boolValue).to(equal(false))
+                    
+                    expect(personResponse?["data"]?[2].name).to(equal("Jacob Michael"))
+                    expect(personResponse?["data"]?[2].age).to(equal(37))
+                    expect(personResponse?["data"]?[2].boolValue).to(equal(true))
+                }
+                
+                it("If data request succeeds, but parse fails, must return proper error.") {
+                    // Given
+                    stub(condition: isHost("www.apiurl.com") && isMethodPOST()) { _ in
+                        let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
+                        let error = OHHTTPStubsResponse(error:notConnectedError)
+                        guard let fixtureFile = OHPathForFile("ApiPostRequestResponseBogusFixture.json", type(of: self)) else { return error }
+                        
+                        return OHHTTPStubsResponse(
+                            fileAtPath: fixtureFile,
+                            statusCode: 200,
+                            headers: ["Content-Type": "application/json"]
+                        )
+                    }
+                    
+                    let requestData = Data()
+                    var personResponse: PersonResponse? = nil
+                    let api = API("https://www.apiurl.com")
+                    let targetUrl = "/path"
+                    
+                    // When
+                    waitUntil { done in
+                        api.post(
+                            targetUrl: targetUrl,
+                            requestData: requestData,
+                            requestHeaders: nil,
+                            completionHandler: { (response: Result<PersonResponse?, Error>) in
+                                switch response {
+                                case .success(let response):
+                                    fail("Mocked response returned success")
+                                    personResponse = response
+                                    done()
+                                case .failure(_):
+                                    done()
+                                }
+                        }, retryAttempts: 30)
+                    }
+                    
+                    // Then
+                    expect(personResponse).to(beNil())
+                }
+                
+                it("if request fails, must execute failure block") {
+                    // Given
+                    stub(condition: isHost("www.apiurl.com") && isMethodPOST()) { _ in
+                        let notConnectedError = NSError(domain:NSURLErrorDomain, code:Int(CFNetworkErrors.cfurlErrorNotConnectedToInternet.rawValue), userInfo:nil)
+                        return OHHTTPStubsResponse(error: notConnectedError)
+                    }
+                    
+                    let requestData = Data()
+                    var personResponse: PersonResponse? = nil
+                    let api = API("https://www.apiurl.com")
+                    let targetUrl = "/path"
+                    
+                    // When
+                    waitUntil { done in
+                        api.post(
+                            targetUrl: targetUrl,
+                            requestData: requestData,
+                            requestHeaders: nil,
                             completionHandler: { (response: Result<PersonResponse?, Error>) in
                                 switch response {
                                 case .success(let response):
