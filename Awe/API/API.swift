@@ -74,6 +74,10 @@ open class API {
         ///
         case domainError
 
+        ///
+        /// Internet is absent
+        ///
+        case noInternet
     }
 
     // MARK: - Properties
@@ -107,7 +111,7 @@ open class API {
     ///
     /// - parameter requestObject: Request object with values to be used as body.
     ///
-    /// - parameter headers: Http Headers to be sent with the request.
+    /// - parameter requestHeaders: Http Headers to be sent with the request.
     ///
     /// - parameter completionHandler: the block to be called when the request completes.
     ///
@@ -118,9 +122,50 @@ open class API {
         _ endpointUrl: String? = nil,
         targetUrl: String,
         requestObject: RequestType? = nil,
-        headers: [String: String]? = nil,
-        completionHandler: @escaping ((Result<ResponseType?, Error>) -> Void),
+        requestHeaders: [String: String]? = nil,
+        completionHandler: @escaping ((Result<ResponseType, Error>) -> Void),
         retryAttempts: Int) where RequestType: Encodable, ResponseType: Decodable {
+
+        var requestData: Data = Data()
+        requestData <-- requestObject
+
+        executeRequest(httpMethod: httpMethod,
+                       endpointUrl,
+                       targetUrl: targetUrl,
+                       requestData: requestData,
+                       requestHeaders: requestHeaders,
+                       completionHandler: completionHandler,
+                       retryAttempts: retryAttempts)
+    }
+
+    ///
+    /// Performs a httpMethod kind request to the given path.
+    /// If the requests succeeds, the `completion` block will be called after converting the result
+    /// using the given transformer.
+    /// If the request fails, the 'errorHandler' block will be called instead.
+    ///
+    /// - parameter httpMethod: Http method to execute.
+    ///
+    /// - parameter _: The server base url. If `nil`, `rootUrl` will be used.
+    ///
+    /// - parameter targetUrl: The request path.
+    ///
+    /// - parameter requestData: Request data to be used as body.
+    ///
+    /// - parameter requestHeaders: Http Headers to be sent with the request.
+    ///
+    /// - parameter completionHandler: the block to be called when the request completes.
+    ///
+    /// - parameter retryAttempts: How many tries before calling `errorHandler` block.
+    ///
+    open func executeRequest<ResponseType>(
+        httpMethod: API.HttpMethod,
+        _ endpointUrl: String? = nil,
+        targetUrl: String,
+        requestData: Data? = nil,
+        requestHeaders: [String: String]? = nil,
+        completionHandler: @escaping ((Result<ResponseType, Error>) -> Void),
+        retryAttempts: Int) where ResponseType: Decodable {
 
         let endpointUrl = endpointUrl ?? self.rootUrl
         let urlString = endpointUrl + targetUrl
@@ -129,8 +174,8 @@ open class API {
 
         let requestBody = self.requestBody(httpMethod: httpMethod,
                                            url: url,
-                                           requestObject: requestObject,
-                                           headers: headers)
+                                           requestData: requestData,
+                                           requestHeaders: requestHeaders)
 
         let dataTask = defaultSession.dataTask(with: requestBody) { (data, _, error) in
             if let error = error {
@@ -140,14 +185,17 @@ open class API {
                     self.executeRequest(httpMethod: httpMethod,
                                         endpointUrl,
                                         targetUrl: targetUrl,
-                                        requestObject: requestObject,
-                                        headers: headers,
+                                        requestData: requestData,
+                                        requestHeaders: requestHeaders,
                                         completionHandler: completionHandler,
                                         retryAttempts: retryAttempts - 1)
                 }
             } else {
                 var response: ResponseType?
                 if let data = data {
+                    if let strData = String(data: data, encoding: .utf8) {
+                        debugPrint("--> response: \(strData)")
+                    }
                     response <-- data
                 }
                 if let response = response {
@@ -155,7 +203,9 @@ open class API {
                         completionHandler(.success(response))
                     }
                 } else {
-                    completionHandler(.failure(NetworkError.decodingError))
+                    DispatchQueue.main.async {
+                        completionHandler(.failure(NetworkError.decodingError))
+                    }
                 }
             }
         }
@@ -172,24 +222,21 @@ open class API {
     ///
     /// - parameter requestObject: Request object with values to be used as body.
     ///
-    /// - parameter headers: Http Headers to be sent with the request.
+    /// - parameter requestHeaders: Http Headers to be sent with the request.
     ///
-    func requestBody<RequestType>(
+    func requestBody(
         httpMethod: HttpMethod,
         url: URL,
-        requestObject: RequestType? = nil,
-        headers: [String: String]? = nil) -> URLRequest where RequestType: Encodable {
+        requestData: Data? = nil,
+        requestHeaders: [String: String]? = nil) -> URLRequest {
 
         var requestBody = URLRequest(url: url)
         requestBody.httpMethod = httpMethod.rawValue
+        requestBody.httpBody = requestData
 
-        var data: Data = Data()
-        data <-- requestObject
-        requestBody.httpBody = data
-
-        if let headers = headers {
-            for headerField in headers.keys {
-                guard let value = headers[headerField] else { continue }
+        if let requestHeaders = requestHeaders {
+            for headerField in requestHeaders.keys {
+                guard let value = requestHeaders[headerField] else { continue }
                 requestBody.addValue(value, forHTTPHeaderField: headerField)
             }
         }

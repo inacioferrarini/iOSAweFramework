@@ -29,7 +29,7 @@ public extension API {
     ///
     /// - parameter targetUrl: The request path.
     ///
-    /// - parameter headers: Http Headers to be sent with the request.
+    /// - parameter requestHeaders: Http Headers to be sent with the request.
     ///
     /// - parameter completionHandler: the block to be called when the request completes.
     ///
@@ -37,14 +37,14 @@ public extension API {
     ///
     func put<ResponseType>(
         targetUrl: String,
-        headers: [String: String]? = nil,
-        completionHandler: @escaping ((Result<ResponseType?, Error>) -> Void),
+        requestHeaders: [String: String]? = nil,
+        completionHandler: @escaping ((Result<ResponseType, Error>) -> Void),
         retryAttempts: Int) where ResponseType: Decodable {
 
         executeRequest(httpMethod: .put,
                        targetUrl: targetUrl,
                        requestObject: EmptyRequest(),
-                       headers: headers,
+                       requestHeaders: requestHeaders,
                        completionHandler: completionHandler,
                        retryAttempts: retryAttempts)
 
@@ -58,7 +58,7 @@ public extension API {
     ///
     /// - parameter requestObject: body data to be sent with the request
     ///
-    /// - parameter headers: Http Headers to be sent with the request.
+    /// - parameter requestHeaders: Http Headers to be sent with the request.
     ///
     /// - parameter completionHandler: the block to be called when the request completes.
     ///
@@ -67,14 +67,44 @@ public extension API {
     func put<RequestType, ResponseType>(
         targetUrl: String,
         requestObject: RequestType,
-        headers: [String: String]? = nil,
-        completionHandler: @escaping ((Result<ResponseType?, Error>) -> Void),
+        requestHeaders: [String: String]? = nil,
+        completionHandler: @escaping ((Result<ResponseType, Error>) -> Void),
         retryAttempts: Int) where RequestType: Encodable, ResponseType: Decodable {
 
         executeRequest(httpMethod: .put,
                        targetUrl: targetUrl,
                        requestObject: requestObject,
-                       headers: headers,
+                       requestHeaders: requestHeaders,
+                       completionHandler: completionHandler,
+                       retryAttempts: retryAttempts)
+
+    }
+
+    /// Performs a `put` request with `requestData` as body.
+    ///
+    /// - Parameters:
+    ///
+    /// - parameter targetUrl: The request path.
+    ///
+    /// - parameter requestData: Request data to be used as body.
+    ///
+    /// - parameter requestHeaders: Http Headers to be sent with the request.
+    ///
+    /// - parameter completionHandler: the block to be called when the request completes.
+    ///
+    /// - parameter retryAttempts: How many tries before calling `errorHandler` block.
+    ///
+    func put<ResponseType>(
+        targetUrl: String,
+        requestData: Data,
+        requestHeaders: [String: String]? = nil,
+        completionHandler: @escaping ((Result<ResponseType, Error>) -> Void),
+        retryAttempts: Int) where ResponseType: Decodable {
+
+        executeRequest(httpMethod: .put,
+                       targetUrl: targetUrl,
+                       requestData: requestData,
+                       requestHeaders: requestHeaders,
                        completionHandler: completionHandler,
                        retryAttempts: retryAttempts)
 

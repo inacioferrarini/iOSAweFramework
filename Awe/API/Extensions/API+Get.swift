@@ -29,7 +29,7 @@ public extension API {
     ///
     /// - parameter targetUrl: The request path.
     ///
-    /// - parameter headers: Http Headers to be sent with the request.
+    /// - parameter requestHeaders: Http Headers to be sent with the request.
     ///
     /// - parameter completionHandler: the block to be called when the request completes.
     ///
@@ -37,14 +37,14 @@ public extension API {
     ///
     func get<ResponseType>(
         targetUrl: String,
-        headers: [String: String]? = nil,
-        completionHandler: @escaping ((Result<ResponseType?, Error>) -> Void),
+        requestHeaders: [String: String]? = nil,
+        completionHandler: @escaping ((Result<ResponseType, Error>) -> Void),
         retryAttempts: Int) where ResponseType: Decodable {
 
         executeRequest(httpMethod: .get,
                        targetUrl: targetUrl,
                        requestObject: EmptyRequest(),
-                       headers: headers,
+                       requestHeaders: requestHeaders,
                        completionHandler: completionHandler,
                        retryAttempts: retryAttempts)
 
