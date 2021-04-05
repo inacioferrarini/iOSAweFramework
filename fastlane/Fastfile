@@ -36,7 +36,7 @@ platform :ios do
       xcodeproj: "Awe.xcodeproj"
     )
     generate_docs
-    generate_reports
+    # generate_reports
     git_commit(
       path: ".",
       message: "Version Bump",

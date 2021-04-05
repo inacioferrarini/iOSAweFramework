@@ -232,7 +232,10 @@ open class API {
 
         var requestBody = URLRequest(url: url)
         requestBody.httpMethod = httpMethod.rawValue
-        requestBody.httpBody = requestData
+		requestBody.httpBody = nil
+		if httpMethod != .get {
+			requestBody.httpBody = requestData
+		}
 
         if let requestHeaders = requestHeaders {
             for headerField in requestHeaders.keys {
